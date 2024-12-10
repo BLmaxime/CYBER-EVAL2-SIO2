@@ -27,4 +27,15 @@ class LateFeeCalculatorTest extends TestCase
         $this->assertEquals(0, $calculator->calculateLateFee($dueDate, $returnDate));
 
     }
+
+    public function testCalculateLateFeeNegative(): void
+    {
+        $book = new Book();
+        $calculator = new LateFeeCalculator();
+
+        $book->setDueDate(new \DateTime('2024-01-01'));
+        $book->setReturnDate(new \DateTime('2023-12-01'));
+        $this->assertEquals(0, $calculator->calculateLateFee($dueDate, $returnDate));
+
+    }
 }
