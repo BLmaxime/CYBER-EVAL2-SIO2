@@ -8,9 +8,8 @@ use App\Entity\Client;
 
 class LateFeeCalculator
 {
-    public function calculateLateFee(Book $book): float
+    public function calculateLateFee(\DateTime $returndate, \DateTime $duedate): float
     {
-        $duedate = $book->getDueDate();$returndate = $book->getReturnDate();
       $prix = 0;
       $retard = $returndate->getTimestamp() - $duedate->getTimestamp();
       if ($retard > 0) {
